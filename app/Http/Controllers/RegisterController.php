@@ -8,14 +8,10 @@ use App\User;
 class RegisterController extends Controller
 {
     public function index(Request $request){
-        if($request->session()->has("id"))
-            return redirect("/");
     	return view("register");
     }
 
      public function register(Request $request){
-        if($request->session()->has("id"))
-            return redirect("/");
 
      	$name=$request->name;
     	$email=$request->email;

@@ -16,8 +16,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',"IndexController@index");
 Route::post('/logout',"IndexController@logout");
 
-Route::get('/login',"LoginController@index");
-Route::post('/login',"LoginController@login");
+Route::get('/login',[
+	"middleware"=>"login",
+	"uses"=>"LoginController@index"
+]);
+Route::post('/login',[
+	"middleware"=>"login",
+	"uses"=>"LoginController@login"
+]);
 
-Route::get('/register',"RegisterController@index");
-Route::post('/register',"RegisterController@register");
+Route::get('/register',[
+	"middleware"=>"login",
+	"uses"=>"RegisterController@index"
+]);
+Route::post('/register',[
+	"middleware"=>"login",
+	"uses"=>"RegisterController@register"
+]);

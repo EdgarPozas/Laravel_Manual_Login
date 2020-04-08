@@ -8,16 +8,10 @@ use App\User;
 class LoginController extends Controller
 {
     public function index(Request $request){
-        if($request->session()->has("id"))
-            return redirect("/");
-
     	return view("login");
     }
 
     public function login(Request $request){
-        if($request->session()->has("id"))
-            return redirect("/");
-
     	$email=$request->email;
     	$password=$request->password;
 
